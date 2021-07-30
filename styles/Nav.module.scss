@@ -1,0 +1,46 @@
+.navContainer {
+    width: 100%;
+}
+
+.navbar {
+    background-color: #000000;
+    color: white;
+    width: 40%;
+    padding: 20px 10px;
+    list-style: none;
+    border-style: inset;
+    border-color: yellow green yellow green;
+}
+
+.navItem {
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover, 
+    a:focus, 
+    a:active {
+        color: black;
+        background-color: white;
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: underline dotted;
+    }
+}
+
+#navInput {
+    background-color: #faeede;
+    border: none;
+}
+
+.inputFormat {
+    display: flex;
+}
+
+.carat {
+    width: 5px;
+    height: 15px;
+    background-color: black;
+    color: black;
+}
