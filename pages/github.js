@@ -2,14 +2,12 @@ import Head from 'next/head';
 import Nav from '../components/nav';
 import List from '../components/list';
 import Content from '../components/content';
-import Layout from '../components/layout';
 import React, {useState} from 'react';
 import navList from '../statics/navList';
 
 import styles from "../styles/Home.module.scss";
 
-export default function Home({portfolioWorks}) {
-  console.log("portfolio works home: ", portfolioWorks);
+export default function Github() {
   const [navResult, setNavResult] = useState();
   const [listResult, setListResult] = useState();
 
@@ -36,7 +34,7 @@ export default function Home({portfolioWorks}) {
     } else if (isStudentBlog) {
         returnValue = navList.BLOG;
     } else if (isName) {
-      returnValue = navList.NAME;
+      returnValue = navList.NAME ;
     } else {
       returnValue = navList.ERROR;
     }
@@ -58,7 +56,7 @@ const onListClick = (e) => {
   return (
     <div className={styles.homeContainer}>
       <Head>
-        <title>RACLIM ONLINE</title>
+        <title>RACLIM ONLINE | GITHUB</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,7 +65,7 @@ const onListClick = (e) => {
 
       <main>
         <h1 className={styles.homeTitle}>
-          <a href="/">Rachel A Lim</a><span className={styles.korean}> | 임아름</span> <span className={styles.pronouns}>| (she/her)</span> <span className={styles.jobTitles}>| programmer : creative</span>
+            <a href="/">Rachel A Lim</a><span className={styles.korean}> | 임아름</span> <span className={styles.pronouns}>| (she/her)</span> <span className={styles.jobTitles}>| programmer : creative</span>
         </h1>
 
         <div className={styles.about}>
@@ -83,6 +81,7 @@ const onListClick = (e) => {
           <List
             navResult={navResult}
             onListClick={onListClick}
+            defaultResult={navList.GITHUB}
           >
           </List>
         </div>
@@ -90,11 +89,9 @@ const onListClick = (e) => {
         <Content
           navResult={navResult}
           listResult={listResult}
+          defaultNavResult={navList.GITHUB}
         >
         </Content>
-
-        {/* <Layout>
-        </Layout> */}
       </main>
 
       <footer>

@@ -1,7 +1,8 @@
+import navList from '../statics/navList';
 import styles from "../styles/Home.module.scss";
 
-const List = ({navResult, onListClick}) => {
-    if (navResult === "My Github Page") {
+const List = ({navResult, onListClick, defaultResult}) => {
+    if (navResult === navList.GITHUB || (!navResult && defaultResult === navList.GITHUB)) {
         return(
             <div className={styles.list}>
                 <div className={styles.listContent}>
@@ -10,12 +11,12 @@ const List = ({navResult, onListClick}) => {
                 </div>
             </div>
         )
-    } else if (navResult === "works") {
+    } else if (navResult === navList.PROJECTS || (!navResult && defaultResult === navList.PROJECTS)) {
         const categories = [
-            "Web",
-            "Craft",
-            "Hybrid", 
-            "All"
+            "web",
+            "craft",
+            "hybrid", 
+            "all"
         ];
 
         let namesList = categories.map((title) => {
@@ -28,17 +29,17 @@ const List = ({navResult, onListClick}) => {
                     </ul>
                 </div>
             )
-    } else if (navResult === "resume") {
+    } else if (navResult === navList.RESUME || (!navResult && defaultResult === navList.RESUME)) {
         return(
             <div className={styles.list}>
                 <div className={styles.listContent}>
-                    <p><a href="https://github.com/raclim">Download Rachel's Resume</a></p> 
-                    <p><a href="https://github.com/raclim">LinkedIn</a></p>
+                    <p><a href="../statics/resume_rachel_lim.pdf" target="blank">Download Rachel's Resume</a></p> 
+                    <p><a href="https://www.linkedin.com/in/rachel-lim-324a8ab6/">LinkedIn</a></p>
                     <p className={styles.tidbit}>I used to spend summer vacations working at an ice cream store. They specialized in matcha flavored products and teaware!</p>
                 </div>
             </div>
         )
-    } else if (navResult === "my student blog") {
+    } else if (navResult === navList.BLOG || (!navResult && defaultResult === navList.BLOG)) {
         return(
             <div className={styles.list}>
                 <div className={styles.listContent}>
@@ -47,7 +48,7 @@ const List = ({navResult, onListClick}) => {
                 </div>
             </div>
         )
-    } else if (navResult === "my name") {
+    } else if (navResult === navList.NAME || (!navResult && defaultResult === navList.NAME)) {
         return(
             <div className={styles.list}>
                 <div className={styles.listContent}>
@@ -56,7 +57,7 @@ const List = ({navResult, onListClick}) => {
                 </div>
             </div>
         )
-    } else if (navResult === "ERROR: unidentified value huehue") {
+    } else if (navResult === navList.ERROR || (!navResult && defaultResult === navList.ERROR)) {
         return(
             <div className={styles.list}>
                 ERROR: unidentified value huehue

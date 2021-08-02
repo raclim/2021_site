@@ -1,8 +1,8 @@
 const Layout = ({children}) => {
     return (
         <div className="layout-container">
-            <main>   
-                {children}           
+            <main> 
+                I'm a project page! Yas birtch         
             </main>
         </div>
     )

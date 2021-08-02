@@ -1,61 +1,48 @@
+import Image from 'next/image';
+import navTitles from "../statics/navTitles";
+import navList from '../statics/navList';
+
 import styles from "../styles/Home.module.scss";
 
-const Content = ({navResult, listResult}) => {
-    if (navResult === "works") {
-        const allProjects = [
-            "Love",
-            "Two",
-            "Three", 
-            "Four",
-            "five",
-            "six",
-            "seven",
-            "eight",
-            "nine",
-            "ten",
-            "eleven",
-            "twelve"
-        ];
-
-        const someProjects = [
-            "Love",
-            "Two",
-            "Three", 
-            "Four",
-        ];
-
-        const otherProjects = [
-            "nine",
-            "ten",
-            "eleven",
-            "twelve"
-        ];
-
-        const allProjectsHolder = allProjects.map(project => {
-            return <div className={styles.projectItem}><p>{project}</p></div>
+const Content = ({navResult, listResult, defaultNavResult}) => {
+    if (navResult === navList.PROJECTS || (!navResult && defaultNavResult === navList.PROJECTS)) {
+        const allProjectsHolder = navTitles.allProjects.map(project => {
+            return <div key={project.slug} className={styles.projectItem}><a href={project.slug}>{project.title}</a><Image src={'https:' + project.thumbnail} width={80} height={80} /><p>[{project.tags}]</p></div>
         });
 
-        const someProjectsHolder = someProjects.map(project => {
-            return <div className={styles.projectItem}><p>{project}</p></div>
+        const webProjectsHolder = navTitles.webProjects.map(project => {
+            return <div key={project.slug} className={styles.projectItem}><a href={project.slug}>{project.title}</a><Image src={'https:' + project.thumbnail} width={80} height={80} /><p>[{project.tags}]</p></div>
         });
 
-        const otherProjectsHolder = otherProjects.map(project => {
-            return <div className={styles.projectItem}><p>{project}</p></div>
+        const craftProjectsHolder = navTitles.craftProjects.map(project => {
+            return <div key={project.slug} className={styles.projectItem}><a href={project.slug}>{project.title}</a><Image src={'https:' + project.thumbnail} width={80} height={80} /><p>[{project.tags}]</p></div>
         });
 
-        if (listResult === "Web") {
+        const hybridProjectsHolder = navTitles.hybridProjects.map(project => {
+            return <div key={project.slug} className={styles.projectItem}><a href={project.slug}>{project.title}</a><Image src={'https:' + project.thumbnail} width={80} height={80} /><p>[{project.tags}]</p></div>
+        });
+
+        if (listResult === "web") {
             return(
                 <div className={styles.content}>
                     <div className={styles.projectContainer}>
-                        {someProjectsHolder}
+                        {webProjectsHolder}
                     </div>
                 </div>
             )
-        } else if (listResult === "Craft") {
+        } else if (listResult === "craft") {
             return(
                 <div className={styles.content}>
                     <div className={styles.projectContainer}>
-                        {otherProjectsHolder}
+                        {craftProjectsHolder}
+                    </div>
+                </div>
+            )
+        }  else if (listResult === "hybrid") {
+            return(
+                <div className={styles.content}>
+                    <div className={styles.projectContainer}>
+                        {hybridProjectsHolder}
                     </div>
                 </div>
             )
@@ -68,14 +55,6 @@ const Content = ({navResult, listResult}) => {
                 </div>
             )
         }
-    } else if (navResult === "resume") {
-        return(
-            <div className={styles.content}>
-                <div className={styles.resume}>
-                    I have jobs yes yes yes
-                </div>
-            </div>
-        )
     } else {
         return (
             <div></div>
