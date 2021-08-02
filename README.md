@@ -1,3 +1,3 @@
-This is Rachel's personal website. It is inspired by BBS games. 
+This is Rachel's personal website.
 
-It is built using Next.js, Sass. 
+It is built using Next + Node + Sass. 
