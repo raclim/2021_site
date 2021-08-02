@@ -33,7 +33,7 @@ const List = ({navResult, onListClick, defaultResult}) => {
         return(
             <div className={styles.list}>
                 <div className={styles.listContent}>
-                    <p><a href="../statics/resume_rachel_lim.pdf" target="blank">Download Rachel's Resume</a></p> 
+                    <p><a href="https://drive.google.com/file/d/13rVSc8YAzbk_JYJsq7exMFY6w5MPBd5A/view?usp=sharing" target="blank">Rachel's Resume</a></p> 
                     <p><a href="https://www.linkedin.com/in/rachel-lim-324a8ab6/">LinkedIn</a></p>
                     <p className={styles.tidbit}>I used to spend summer vacations working at an ice cream store. They specialized in matcha flavored products and teaware!</p>
                 </div>
