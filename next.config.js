@@ -1,8 +1,8 @@
-const debug = process.env.NODE_ENV === 'production';
+// const debug = process.env.NODE_ENV === 'production';
 
 module.exports = {
     images: {
         domains: ['images.ctfassets.net']
     },
-    assetPrefix: !debug ? '/raclim.github.io/' : ''
+    // assetPrefix: !debug ? '/raclim.github.io/' : ''
 }
