@@ -1,14 +1,11 @@
 import styles from "../styles/Nav.module.scss";
 
-export default function Nav() {
+export default function Nav({getNavInput}) {
     return (
         <div className={styles.navContainer}>
             <ul className={styles.navbar}>
                 < li className={styles.navItem}>
-                    <a href="/">[W] Works</a>
-                </li>
-                <li className={styles.navItem}>
-                    <a href="/">[I] Illustrations</a>
+                    <a href="/">[P] Projects</a>
                 </li>
                 <li className={styles.navItem}>
                     <a href="/">[R] Resume</a>
@@ -17,14 +14,14 @@ export default function Nav() {
                     <a href="https://github.com/raclim">[G] Github</a>
                 </li>
                 <li className={styles.navItem}>
-                    <a href="https://raclims.wordpress.com/">[S] Student Blog</a>
+                    <a href="https://raclims.wordpress.com/">[B] Blog (from my time as a student)</a>
                 </li>
             </ul>
 
-            <form className={styles.inputFormat}>
-                <label for="nav">[3:20 PM] Enter Your Choice? </label>
-                <input id={styles.navInput} type="text" placeholder="_" />
-                <div className={styles.carat}></div>
+            <form className={styles.inputFormat} onSubmit={getNavInput}>
+                <label htmlFor="choice">[9:30 PM] Enter your choice:  </label>
+                <input id={styles.navInput} name="choice" type="text" />
+                {/* <div className={styles.carat}></div> */}
             </form>
         </div>
     )
