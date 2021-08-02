@@ -15,8 +15,6 @@ export default function Github() {
     e.preventDefault();
     let value = e.target[0].value;
 
-    console.log("value: ", value);
-
     let isWorks = value === "P" || value ==="p" || value === "Projects" || value === "projects";
     let isResume = value === "R" || value ==="r" || value === "Resume" || value === "resume";
     let isGithub = value === "G" || value ==="g" || value === "Github" || value === "github";
@@ -41,7 +39,6 @@ export default function Github() {
 
     setNavResult(returnValue);
 
-    console.log("return value: ", returnValue);
     return returnValue;
 }
 

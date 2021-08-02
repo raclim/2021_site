@@ -14,15 +14,11 @@ const contentfulClient = createClient({
 export const getStaticPaths = async () => {
     const res = await contentfulClient.getEntries({content_type: 'portfolioWork'});
 
-    console.log("res items: ", res.items);
-
     const paths = res.items.map(item => {
         return {
             params: {slug: item.fields.slug}
         }
     });
-
-    console.log("paths: ", paths);
 
     return {
         paths, 
@@ -31,13 +27,10 @@ export const getStaticPaths = async () => {
 }
 
 export async function getStaticProps({params}) {
-    console.log("params: ", params);
     const {items} = await contentfulClient.getEntries({
         content_type: 'portfolioWork',
         'fields.slug' : params.slug
     });
-
-    console.log("item: ", items[0]);
 
     return {
         props: {portfolioWork: items[0]}
@@ -45,7 +38,6 @@ export async function getStaticProps({params}) {
 }
 
 export default function Project({portfolioWork}) {
-    console.log("profolio works: ", portfolioWork);
     const options = {
         renderMark: {
             [MARKS.BOLD]: (text) => <b>{text}</b>

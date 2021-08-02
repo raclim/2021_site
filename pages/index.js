@@ -8,16 +8,13 @@ import navList from '../statics/navList';
 
 import styles from "../styles/Home.module.scss";
 
-export default function Home({portfolioWorks}) {
-  console.log("portfolio works home: ", portfolioWorks);
+export default function Home() {
   const [navResult, setNavResult] = useState();
   const [listResult, setListResult] = useState();
 
   const getNavInput = (e) => {
     e.preventDefault();
     let value = e.target[0].value;
-
-    console.log("value: ", value);
 
     let isWorks = value === "P" || value ==="p" || value === "Projects" || value === "projects";
     let isResume = value === "R" || value ==="r" || value === "Resume" || value === "resume";
@@ -43,7 +40,6 @@ export default function Home({portfolioWorks}) {
 
     setNavResult(returnValue);
 
-    console.log("return value: ", returnValue);
     return returnValue;
 }
 
