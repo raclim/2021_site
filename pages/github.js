@@ -92,7 +92,7 @@ const onListClick = (e) => {
       </main>
 
       <footer>
-        <p>Rachel Lim 2021 ✨</p>
+        <p>Rachel Lim 2021 ✨ Built with Love</p>
       </footer>
 
       <style jsx global>{`
